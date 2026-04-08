@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+dist/
+*.egg-info/
+
+# Logs
+*.log
+logs/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets (if you add config files with API keys)
+secrets/
+*.secret
+*.key
+
+# App-specific configs and examples (keep private)
+configs/apps/*
+!configs/apps/.gitkeep
+!configs/apps/README.md
+
+examples/apps/*
+!examples/apps/.gitkeep
+!examples/apps/README.md
+
+data/.cache

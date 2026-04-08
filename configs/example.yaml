@@ -1,0 +1,63 @@
+# Example App Configuration
+# Copy this file and customize for your app
+
+app_name: "My Awesome App"
+app_id: 1234567890
+subscription_group: 12345678
+
+# Subscriptions to update
+subscriptions:
+  - type: monthly
+    id: 9876543210
+    baseline: 7.99
+    # Monthly subscription at $7.99/month
+  
+  - type: annual
+    id: 9876543211
+    baseline: 69.99
+    # Annual subscription at $69.99/year (~$5.83/month, 27% discount)
+
+# PPP Index Selection
+# Choose based on your app category:
+# - ppp-index-netflix-2026.json: Entertainment, streaming, video apps
+# - ppp-index-spotify-2026.json: Music, audio, lifestyle apps
+# - ppp-index-bigmac-2026.json: Productivity, business, utility apps
+# - ppp-index-numbeo-2026.json: General consumer apps (broadest coverage)
+ppp_index: ppp-index-netflix-2026.json
+
+# Territories to skip (manual pricing control)
+# Common reasons to skip:
+# - Strategic markets where you want manual control
+# - Markets with special pricing strategies
+# - Baseline territory (usually USA)
+skip_territories:
+  - USA  # Baseline (always skip)
+  - GBR  # United Kingdom - strategic market
+  - DEU  # Germany - strategic market
+  - FRA  # France - strategic market
+  # Add more as needed
+
+# Price change start date
+# Must be at least 7 days in the future for App Store review
+# Format: YYYY-MM-DD
+start_date: "2026-05-01"
+
+# Preserve current price for existing customers
+# Recommended: true (protects your existing subscribers)
+preserved: true
+
+# Notes:
+# 1. Get your IDs from App Store Connect:
+#    - app_id: Apps → Your App → App Information
+#    - subscription_group: Apps → Your App → Subscriptions
+#    - subscription IDs: Click into each subscription
+#
+# 2. Choose your PPP index wisely:
+#    - Entertainment apps → Netflix/Spotify
+#    - Business apps → Big Mac/Numbeo
+#    - Run: python src/compare_indexes.py --baseline 7.99
+#
+# 3. Always dry-run first:
+#    python src/apply_ppp_pricing_from_config.py --config configs/myapp.yaml --dry-run
+#
+# 4. Version control this file for pricing history tracking
